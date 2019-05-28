@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PlanPartyComponent,
-    DashboardComponent
+    DashboardComponent 
   ],
   imports: [
     BrowserModule,
