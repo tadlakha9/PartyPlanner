@@ -1,0 +1,28 @@
+<h3>"Plan your Party"</h3>
+<div>
+  <label>Party Title: </label>
+  <input type ="text"  [(ngModel)]="partyTitle" placeholder="Party Title"/>
+</div>
+ <div>
+  <label>Party Place: </label>
+  <input [(ngModel)]="partyPlace" placeholder="Party Place"/>
+</div>
+<div>
+  <label>Attendance: </label>
+  <input [(ngModel)]="attendance" placeholder="Attendance"/>
+</div> 
+<div >
+
+  <label >
+      Date Time:
+      <input placeholder="Date Time"
+             [(ngModel)]="dateTime"
+             [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+      <owl-date-time [pickerMode]="'dialog'" #dt></owl-date-time>
+  </label>
+
+</div>
+
+<p>
+  <button (click)="save()">SAVE</button>
+</p>
