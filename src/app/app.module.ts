@@ -13,17 +13,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanPartyComponent } from './plan-party/plan-party.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
 
-const appRoutes: Routes = [
-{path:'plan-party', component:PlanPartyComponent},
-{path:'dashboard', component:DashboardComponent}
-];
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanPartyComponent,
-    DashboardComponent 
+    DashboardComponent,
+    SigninComponent 
   ],
   imports: [
     BrowserModule,
@@ -34,10 +34,9 @@ const appRoutes: Routes = [
     IgxDatePickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    MatTableModule,
-    RouterModule.forRoot(appRoutes)
+    MatTableModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
