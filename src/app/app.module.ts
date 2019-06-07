@@ -11,10 +11,10 @@ import { DataSource } from '@angular/cdk/table';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanPartyComponent } from './plan-party/plan-party.component';
-import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -23,7 +23,8 @@ import { AuthService } from './auth/auth.service';
     AppComponent,
     PlanPartyComponent,
     DashboardComponent,
-    SigninComponent 
+    SigninComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
+import { AuthService } from './auth/auth.service';
 // import { slideInAnimation } from './animations';
 
 @Component({
@@ -10,8 +11,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'PARTY PLANNER';
-  imageUrl = '../assets/image.png'
+  imageUrl = '../assets/image.png';
   // getAnimationData(outlet: RouterOutlet) {
   //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   // }
+
+  constructor(private router:Router){
+    this.router.navigate(['/signin']);
+  }
 }

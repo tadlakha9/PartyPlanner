@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default " >
+    <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand">Party Planner</a>
+        </div>  
+            <div class="nav navbar-header" >
+                <ul class="nav navbar-nav navbar-header" > 
+                    <ng-template [ngIf]="authService.isAuthenticated()">
+                    <li><a routerLink="/plan-party">PLAN PARTY</a></li>
+                    <li><a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a></li>
+                </ng-template>
+                </ul>
+            </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li *ngIf="!authService.isAuthenticated()"><a routerLink="/signin">Sign In</a></li>
+                    <button class="btn" *ngIf="authService.isAuthenticated()" (click)="logout()">logout</button>
+                </ul>
+        
+    </div>
+    </nav>
