@@ -26,7 +26,7 @@
     "g": "^2.0.1",
     "igniteui-angular": "^7.2.2",
     "ng-pick-datetime": "^7.0.0",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },

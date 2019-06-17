@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
+import { DashboardService } from './dashboard/dashboard.service';
+import { PlanPartyServices } from './plan-party/plan-party.services';
 
 
 
@@ -37,7 +39,11 @@ import { HeaderComponent } from './header/header.component';
     OwlNativeDateTimeModule,
     MatTableModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    DashboardService,
+    PlanPartyServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

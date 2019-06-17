@@ -1,28 +1,42 @@
-<h3>"Plan your Party"</h3>
-<div>
-  <label>Party Title: </label>
-  <input type ="text"  [(ngModel)]="partyTitle" placeholder="Party Title"/>
-</div>
- <div>
-  <label>Party Place: </label>
-  <input [(ngModel)]="partyPlace" placeholder="Party Place"/>
-</div>
-<div>
-  <label>Attendance: </label>
-  <input [(ngModel)]="attendance" placeholder="Attendance"/>
-</div> 
-<div >
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="save(f)" #f="ngForm">
+        <div class="form-group">
+        <div>
+          <label for="partyTitle">Party Title: </label>
+          <input type="text" id="partyTitle" name="party_title" class="form-control" ngModel placeholder="Party Title"/>
+        </div>
+         <div>
+          <label for="partyPlace">Party Place: </label>
+          <input type="text" id="partyPlace" name="party_place" class="form-control" ngModel placeholder="Party Place"/>
+        </div>
+        <div>
+          <label for="attendance">Attendance: </label>
+          <input type="text" id="attendance" name="attendance" class="form-control" ngModel placeholder="Attendance"/>
+        </div> 
+        <div >
+        
+          <label >
+              Date Time:
+              <input placeholder="Date Time" name="date_time"
+              class="form-control" ngModel
+                     
+                     [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+              <owl-date-time [pickerMode]="'dialog'" #dt></owl-date-time>
+          </label>
+        
+        </div>
+        <button type="submit" class="btn btn-success">SAVE</button>
+      </div>
+      </form>
+    </div>
 
-  <label >
-      Date Time:
-      <input placeholder="Date Time"
-             [(ngModel)]="dateTime"
-             [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
-      <owl-date-time [pickerMode]="'dialog'" #dt></owl-date-time>
-  </label>
-
+  </div>
 </div>
 
-<p>
-  <button (click)="save()" class="btn btn-success">SAVE</button>
-</p>
+
+
+
+
+  

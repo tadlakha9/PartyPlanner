@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PlanPartyServices } from './plan-party.services';
 
 @Component({
   selector: 'app-plan-party',
@@ -11,13 +13,19 @@ export class PlanPartyComponent implements OnInit {
   attendance='';
   time='';
   
+  constructor(private planPartyService:PlanPartyServices){}
 
 
   ngOnInit() {
   }
 
-  save(){
-    alert('Save method called');
+  save(form:NgForm){
+    console.log(form);
+    this.planPartyService.savePlanParty(form.value)
+    .subscribe(
+      (response => console.log(response)),
+      (error) => console.log(error)
+    );
   }
 
 }
