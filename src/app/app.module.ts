@@ -17,6 +17,7 @@ import { AuthService } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { PlanPartyServices } from './plan-party/plan-party.services';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 
@@ -37,7 +38,8 @@ import { PlanPartyServices } from './plan-party/plan-party.services';
     IgxDatePickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    MatTableModule
+    MatTableModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthService,
