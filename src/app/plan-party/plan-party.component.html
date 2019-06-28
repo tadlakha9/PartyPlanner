@@ -31,7 +31,7 @@
             id="approverId"
             [placeholder]="'ApproverId'"
             [data]="userList"
-            [settings]="dropdownSettings"
+            [settings]="userDropdownSettings"
             (onSelect)="onItemSelect($event)"
             (onSelectAll)="onSelectAll($event)"
             >
@@ -40,10 +40,10 @@
         <div>
           <label for="attendee">Attendee: </label>
           <ng-multiselect-dropdown
-            id="attendee"
+            id="attendee"            
             [placeholder]="'Attendee'"
             [data]="userList"
-            [settings]="dropdownSettings"
+            [settings]="userDropdownSettings"
             (onSelect)="onItemSelect($event)"
             (onSelectAll)="onSelectAll($event)"
             >

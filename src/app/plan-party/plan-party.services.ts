@@ -9,7 +9,7 @@ export class PlanPartyServices{
   url:string='http://localhost:3000/users';
 
   
-  getProjectList() : Observable<User[]> {
+  getUserList() : Observable<User[]> {
     return this.httpClient.get<User[]>(this.url);
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PlanPartyServices } from './plan-party.services';
+import { User } from '../model/User';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-plan-party',
@@ -18,31 +20,26 @@ export class PlanPartyComponent implements OnInit {
 
   
   projectList = [];
-  userList = [];
+  userList : User[];
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  userDropdownSettings = {};
   ngOnInit() {
-    // this.planPartyService.getProjectList().subscribe(projList => {
-    //   console.log(projList);
-    //   this.projectList=projList;
+    // this.planPartyService.getProjectList().subscribe(
+    //   (response : User[]) => {
+    //   console.log(response);
     // });
     this.projectList = [
       { item_id: 1, item_text: 'ADNS' },
       { item_id: 2, item_text: 'DALI' }
     ];
 
-    this.userList = [
-      { item_id: 1, item_text: 'Shakti' },
-      { item_id: 2, item_text: 'Rishika' },
-      { item_id: 3, item_text: 'Prateek' },
-      { item_id: 4, item_text: 'Ayush' },
-      { item_id: 5, item_text: 'Ishita' },
-      { item_id: 6, item_text: 'Tushar' },
-      { item_id: 7, item_text: 'Abhishek' },
-      { item_id: 8, item_text: 'Harkanwal' },
-      { item_id: 9, item_text: 'Rahul' }
-    ];
+    this.planPartyService.getUserList().subscribe(
+        (response : User[])  => {
+        console.log(response);
+        this.userList = response;
+      });
 
     this.selectedItems = [
       { item_id: 3, item_text: 'Pune' },
@@ -52,6 +49,16 @@ export class PlanPartyComponent implements OnInit {
       singleSelection: false,
       idField: 'item_id',
       textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+    this.userDropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'empName',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
