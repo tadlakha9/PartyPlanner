@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class DashboardService{
 
-    url:string='http://localhost:8081/parties';//http://localhost:8081/employees   //http://localhost:8081/parties
+    url:string='http://localhost:3000/parties';  //http://localhost:8081/parties
         constructor(private httpClient:HttpClient){
 
         }

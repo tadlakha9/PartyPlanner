@@ -2,23 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/User';
+import { PartyDetails } from '../model/PartyDetails';
 
 
 @Injectable()
 export class PlanPartyServices{
-  url:string='http://localhost:3000/users';
+  userUrl:string='http://localhost:3000/users';
+  projectUrl:string='http://localhost:3000/projects';
+
+  getProjectList() : any {
+    return this.httpClient.get(this.projectUrl);
+  }
 
   
   getUserList() : Observable<User[]> {
-    return this.httpClient.get<User[]>(this.url);
+    return this.httpClient.get<User[]>(this.userUrl);
   }
 
-    _url:string="http://localhost:8081/addParty";
+    _url:string="http://localhost:8102/party/partydetail"; //http://localhost:8081/addParty
 
     constructor(private httpClient:HttpClient){}
 
-  savePlanParty(object:any) {
-
+  savePlanParty(object:PartyDetails) {
     return this.httpClient.post(this._url,object);
   }
 

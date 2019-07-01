@@ -25,15 +25,14 @@ export class PlanPartyComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
   userDropdownSettings = {};
+  approverIdSettings = {};
   ngOnInit() {
-    // this.planPartyService.getProjectList().subscribe(
-    //   (response : User[]) => {
-    //   console.log(response);
-    // });
-    this.projectList = [
-      { item_id: 1, item_text: 'ADNS' },
-      { item_id: 2, item_text: 'DALI' }
-    ];
+    this.planPartyService.getProjectList().subscribe(
+      project => {
+      console.log(project);
+      this.projectList = project;
+      }
+    );
 
     this.planPartyService.getUserList().subscribe(
         (response : User[])  => {
@@ -41,17 +40,10 @@ export class PlanPartyComponent implements OnInit {
         this.userList = response;
       });
 
-    this.selectedItems = [
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' }
-    ];
     this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
+      singleSelection: true,
+      idField: 'projectName',
+      textField: 'projectName',
       allowSearchFilter: true
     };
 
@@ -62,6 +54,13 @@ export class PlanPartyComponent implements OnInit {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+    this.approverIdSettings = {
+      singleSelection: true,
+      idField: 'id',
+      textField: 'empName',
       allowSearchFilter: true
     };
   }
