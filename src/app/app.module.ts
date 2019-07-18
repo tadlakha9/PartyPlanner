@@ -18,6 +18,10 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { PlanPartyServices } from './plan-party/plan-party.services';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { FooterComponent } from './footer/footer.component';
+
+
 
 
 
@@ -27,7 +31,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     PlanPartyComponent,
     DashboardComponent,
     SigninComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatTableModule,
+    SelectDropDownModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [

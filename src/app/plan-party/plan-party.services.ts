@@ -7,8 +7,8 @@ import { PartyDetails } from '../model/PartyDetails';
 
 @Injectable()
 export class PlanPartyServices{
-  userUrl:string='http://localhost:3000/users';
-  projectUrl:string='http://localhost:3000/projects';
+  userUrl:string='http://localhost:8102/party/user';
+  projectUrl:string='http://localhost:8102/party/projectdetails/user/10001';
 
   getProjectList() : any {
     return this.httpClient.get(this.projectUrl);

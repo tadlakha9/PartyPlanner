@@ -1,4 +1,6 @@
 export interface User {
-    id : number;
-    empName : String;
+    empId : string;
+    name : string;
+    password : string;
+    emailId : string;
   }

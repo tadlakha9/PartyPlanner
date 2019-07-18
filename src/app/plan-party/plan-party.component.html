@@ -9,18 +9,10 @@
         </div>
         <div>
           <label for="selectProject">Select Project: </label>
-          <!--source of multiselect is https://www.npmjs.com/package/ng-multiselect-dropdown -->
-           <ng-multiselect-dropdown   
-            id="selectProject"
-            name="project_List"
-            [placeholder]="'Select Project'"
-            [data]="projectList"
-            [(ngModel)]="selectedItems"
-            [settings]="dropdownSettings"
-            (onSelect)="onItemSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            >
-          </ng-multiselect-dropdown>
+          <select id="selectProject" ngModel name="projectId">
+              <option *ngFor="let project of projectList" [value]="project.id">
+              {{project.projectName}}</option>
+            </select>
         </div>
          <div>
           <label for="partyPlace">Party Place: </label>
@@ -28,23 +20,19 @@
         </div>
         <div>
           <label for="approverId">ApproverId: </label>
-          <ng-multiselect-dropdown
-            id="approverId"
-            ngModel
-            name="approverId"
-            [placeholder]="'ApproverId'"
-            [data]="userList"
-            [settings]="approverIdSettings"
-            (onSelect)="onItemSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            >
-          </ng-multiselect-dropdown>
+         
+          <select id="approverId" ngModel name="approverId">
+            <option *ngFor="let user of userList" [value]="user.id">
+            {{user.name}}</option>
+          </select>
+
+         
         </div> 
         <div>
           <label for="attendee">Attendee: </label>
           <ng-multiselect-dropdown
             id="attendee"   
-            name="attendee"   
+            name="empId"   
             ngModel      
             [placeholder]="'Attendee'"
             [data]="userList"
@@ -62,7 +50,7 @@
                [owlDateTimeTrigger]="dt1" 
                placeholder="Date Time"
                ngModel
-               name="date_time">
+               name="partyDate">
               <owl-date-time #dt1></owl-date-time>
           </label>
         
@@ -70,6 +58,7 @@
         <button type="submit" class="btn btn-success">SAVE</button>
       </div>
       </form>
+
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 // import { slideInAnimation } from './animations';
@@ -9,7 +9,7 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
   // animations: [ slideInAnimation ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'PARTY PLANNER';
   imageUrl = '../assets/image.png';
   // getAnimationData(outlet: RouterOutlet) {
@@ -17,6 +17,9 @@ export class AppComponent {
   // }
 
   constructor(private router:Router){
-    this.router.navigate(['/signin']);
   }
+
+  ngOnInit(){
+    console.log('ngonit-------------------');
+    this.router.navigate(['/signin']);}
 }
