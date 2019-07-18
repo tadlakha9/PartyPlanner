@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { PlanPartyServices } from './plan-party.services';
 import { User } from '../model/User';
 import { Response } from '@angular/http';
+import * as XLSX from 'xlsx';
+// import * as XLSX from 'ts-xlsx';
 
 @Component({
   selector: 'app-plan-party',
@@ -15,9 +17,7 @@ export class PlanPartyComponent implements OnInit {
   attendance='';
   time='';
   
-  
   constructor(private planPartyService:PlanPartyServices){}
-
   
   projectList = [];
   userList : User[];
@@ -40,17 +40,10 @@ export class PlanPartyComponent implements OnInit {
         this.userList = response;
       });
 
-    this.dropdownSettings = {
-      singleSelection: true,
-      idField: 'projectName',
-      textField: 'projectName',
-      allowSearchFilter: true
-    };
-
     this.userDropdownSettings = {
       singleSelection: false,
-      idField: 'id',
-      textField: 'empName',
+      idField: 'empId',
+      textField: 'name',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
@@ -71,14 +64,31 @@ export class PlanPartyComponent implements OnInit {
     console.log(items);
   }
 
+  
   save(form:NgForm){
-    console.log(form);
+    let tempVar = form.value.empId;
+    form.value.empId = [];
+    tempVar.forEach(function (value) {
+      form.value.empId.push(value.empId);
+  });
     this.planPartyService.savePlanParty(form.value)
     .subscribe(
       (response => console.log(response)),
       (error) => console.log(error)
     );
   }
+
+    
+    
+    
+    
+    
+  
+
+  OnEmployeeSelected(item : any){
+    console.log(item);
+  }
+
 
   
 
