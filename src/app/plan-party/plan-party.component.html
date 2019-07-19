@@ -7,22 +7,33 @@
           <label for="partyTitle">Party Title: </label>
           <input type="text" id="partyTitle" name="party_title" class="form-control" ngModel placeholder="Party Title"/>
         </div>
+
         <div>
           <label for="selectProject">Select Project: </label>
-          <select id="selectProject" ngModel name="projectId">
-              <option *ngFor="let project of projectList" [value]="project.id">
+          <select id="selectProject" 
+          ngModel 
+          name="projectId" 
+          class="form-control" 
+          placeholder="Select Project">
+              <option *ngFor="let project of projectList" [value]="project.projectId">
               {{project.projectName}}</option>
             </select>
         </div>
+
          <div>
           <label for="partyPlace">Party Place: </label>
           <input type="text" id="partyPlace" name="party_place" class="form-control" ngModel placeholder="Party Place"/>
         </div>
+
         <div>
           <label for="approverId">ApproverId: </label>
          
-          <select id="approverId" ngModel name="approverId">
-            <option *ngFor="let user of userList" [value]="user.id">
+          <select id="approverId" 
+          ngModel 
+          name="approverId" 
+          class="form-control" 
+          placeholder="ApproverId">
+            <option *ngFor="let user of userList" [value]="user.empId">
             {{user.name}}</option>
           </select>
 

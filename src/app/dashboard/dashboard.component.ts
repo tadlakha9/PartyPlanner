@@ -11,12 +11,20 @@ import { DashboardService } from './dashboard.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['party_title', 'party_place', 'attendance', 'date_time'];
+  displayedColumns: string[] = ['party_title', 'select_project', 'party_place', 'approved_by', 'attendee', 'date_time'];
   dataSource: PartyDetails[];
-  constructor(private dashboardService:DashboardService) { }
+  constructor(private dashboardService:DashboardService) { 
+    console.log('consructor called');
+  }
 
   ngOnInit() {
-    this.dashboardService.getUser().subscribe(parties => {this.dataSource=parties});
+    console.log('ngOnInit called');
+    this.dashboardService.getUser()
+    .subscribe(parties => 
+      {
+        console.log("parties:"+parties)
+        this.dataSource=parties
+      });
   }
 
 }
