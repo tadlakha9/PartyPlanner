@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
-import { AuthService } from './auth/auth.service';
 // import { slideInAnimation } from './animations';
 
 @Component({

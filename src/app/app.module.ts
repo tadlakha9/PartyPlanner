@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanPartyComponent } from './plan-party/plan-party.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SigninComponent } from './auth/signin/signin.component';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './auth.service';
 import { HeaderComponent } from './header/header.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { PlanPartyServices } from './plan-party/plan-party.services';

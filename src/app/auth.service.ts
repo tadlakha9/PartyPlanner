@@ -1,10 +1,10 @@
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class AuthService{
      private authenticated=false;
-
+    authUser :string;
     constructor(private router:Router){
 
     }
@@ -13,6 +13,7 @@ export class AuthService{
         if(userName==='tushar' && password==='tushar'){
             console.log('Login Successfully');
             this.authenticated=true;
+            this.authUser = userName;
             this.router.navigate(['/dashboard']);
         }else{
             console.log('Login failed');
