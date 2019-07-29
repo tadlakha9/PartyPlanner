@@ -74,20 +74,13 @@ export class PlanPartyComponent implements OnInit {
     tempVar.forEach(function (value) {
       form.value.empId.push(value.empId);
   });
-  form.value.push(this.authService.authUser);
+  form.value.userId = this.authService.authUser;
     this.planPartyService.savePlanParty(form.value)
     .subscribe(
       (response => console.log(response)),
       (error) => console.log(error)
     );
   }
-
-    
-    
-    
-    
-    
-  
 
   OnEmployeeSelected(item : any){
     console.log(item);
