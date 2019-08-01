@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PartyDetails } from '../model/PartyDetails';
 import { DashboardService } from './dashboard.service';
+import { PlanPartyComponent } from '../plan-party/plan-party.component';
+import { PlanPartyServices } from '../plan-party/plan-party.services';
+import { User } from '../model/User';
 
 
 
@@ -11,9 +14,11 @@ import { DashboardService } from './dashboard.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  userList : User[];
+  userDropdownSettings = {};
   displayedColumns: string[] = ['party_title', 'select_project', 'party_place', 'approved_by', 'attendee', 'date_time'];
   dataSource: PartyDetails[];
-  constructor(private dashboardService:DashboardService) { 
+  constructor(private dashboardService:DashboardService, private planPartyService : PlanPartyServices) { 
     console.log('consructor called');
   }
 
@@ -25,6 +30,20 @@ export class DashboardComponent implements OnInit {
         console.log("parties:"+parties)
         this.dataSource=parties
       });
+      this.planPartyService.getUserList().subscribe(
+        (response : User[])  => {
+        console.log(response);
+        this.userList = response;
+      });
+      this.userDropdownSettings = {
+        singleSelection: false,
+        idField: 'empId',
+        textField: 'name',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 0,
+        allowSearchFilter: true
+      };
   }
 
 }
