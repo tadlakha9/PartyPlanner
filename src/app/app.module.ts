@@ -12,7 +12,6 @@ import { DataSource } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanPartyComponent } from './plan-party/plan-party.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth.service';
 import { HeaderComponent } from './header/header.component';
 import { DashboardService } from './dashboard/dashboard.service';
@@ -21,7 +20,10 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { FooterComponent } from './footer/footer.component';
 
-
+import { ToastrModule } from 'ngx-toastr';
+import { PopupComponentComponent } from './popup-component/popup-component.component';
+import { ModalService } from 'src/services/modalService';
+import { SigninModule } from './auth/signin/signin.module';
 
 
 
@@ -30,14 +32,15 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     PlanPartyComponent,
     DashboardComponent,
-    SigninComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PopupComponentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    SigninModule,
     FormsModule,
     MatDatepickerModule,
     IgxDatePickerModule,
@@ -45,12 +48,14 @@ import { FooterComponent } from './footer/footer.component';
     OwlNativeDateTimeModule,
     MatTableModule,
     SelectDropDownModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [
     AuthService,
     DashboardService,
-    PlanPartyServices
+    PlanPartyServices,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

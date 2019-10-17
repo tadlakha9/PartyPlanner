@@ -1,4 +1,5 @@
-<nav class="navbar navbar-default " >
+<!--
+<nav class="navbar navbar-inverse " >
     <div class="container-fluid">
           <div class="navbar-header">
             <a href="#" class="navbar-brand">Party Planner</a>
@@ -12,9 +13,58 @@
                 </ul>
             </div>
                 <ul class="nav navbar-nav navbar-right">
+                    
                     <li *ngIf="!authService.isAuthenticated()"><a routerLink="/signin">Sign In</a></li>
                     <button class="btn" *ngIf="authService.isAuthenticated()" (click)="logout()">logout</button>
                 </ul>
         
     </div>
     </nav>
+-->
+
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Party Planner</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">
+                    <i class="fa fa-home"></i>
+                    Home
+                    <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+              </ul>                                  
+              <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" *ngIf="authService.isAuthenticated()">
+                      <a class="nav-link" routerLink="/plan-party">
+                        
+                            PLAN PARTY
+                        <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active" *ngIf="authService.isAuthenticated()">
+                            <a class="nav-link" routerLink="/dashboard">
+                              
+                                DASHBOARD
+                              <span class="sr-only">(current)</span>
+                              </a>
+                          </li>
+                  </ul>      
+                <form class="form-inline my-2 my-lg-0">
+                     <li *ngIf="!authService.isAuthenticated()"><a routerLink="/signin">Sign In</a></li>
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="authService.isAuthenticated()" (click)="logout()">logout</button>
+              </form>
+            </div>
+          </nav>
+
+
+
+
+
+
+
+

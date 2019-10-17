@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -9,12 +9,17 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private authService : AuthService) { }
+  loginForm = this.fb.group({
+    empId: [null],
+    password: [null]
+  });
+  constructor(private authService : AuthService, private fb: FormBuilder) { }
 
   ngOnInit() {
   }
 
-  onSignIn(form:NgForm){
-    this.authService.signIn(form.value);
+  onSubmit() {
+    this.authService.signIn(this.loginForm.value);
   }
+
 }

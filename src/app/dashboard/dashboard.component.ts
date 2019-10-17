@@ -4,7 +4,7 @@ import { DashboardService } from './dashboard.service';
 import { PlanPartyComponent } from '../plan-party/plan-party.component';
 import { PlanPartyServices } from '../plan-party/plan-party.services';
 import { User } from '../model/User';
-
+import { ModalService } from 'src/services/modalService';
 
 
  
@@ -16,9 +16,9 @@ import { User } from '../model/User';
 export class DashboardComponent implements OnInit {
   userList : User[];
   userDropdownSettings = {};
-  displayedColumns: string[] = ['party_title', 'select_project', 'party_place', 'approved_by', 'attendee', 'date_time'];
+  displayedColumns: string[] = ['party_title', 'select_project', 'party_place', 'approved_by', 'date_time'];
   dataSource: PartyDetails[];
-  constructor(private dashboardService:DashboardService, private planPartyService : PlanPartyServices) { 
+  constructor(private dashboardService:DashboardService, private planPartyService : PlanPartyServices, private modalService: ModalService) { 
     console.log('consructor called');
   }
 
@@ -35,15 +35,9 @@ export class DashboardComponent implements OnInit {
         console.log(response);
         this.userList = response;
       });
-      this.userDropdownSettings = {
-        singleSelection: false,
-        idField: 'empId',
-        textField: 'name',
-        selectAllText: 'Select All',
-        unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 0,
-        allowSearchFilter: true
-      };
+      
   }
-
+  openModal() {
+    this.modalService.open();
+}
 }

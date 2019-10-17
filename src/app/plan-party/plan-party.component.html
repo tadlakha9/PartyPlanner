@@ -1,15 +1,19 @@
+
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="save(f)" #f="ngForm">
         <div class="form-group">
         <div>
-          <label for="partyTitle">Party Title: </label>
+          <label for="partyTitle" class="col-md-12 col-form-label text-md-left" class="font-weight-bold" >Party Title: </label>
+          <div class="col-md-12">
           <input type="text" id="partyTitle" name="party_title" class="form-control" ngModel placeholder="Party Title"/>
+        </div>
         </div>
 
         <div>
-          <label for="selectProject">Select Project: </label>
+          <label for="selectProject" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Select Project: </label>
+          <div class="col-md-12">
           <select id="selectProject" 
           ngModel 
           name="projectId" 
@@ -18,16 +22,19 @@
               <option *ngFor="let project of projectList" [value]="project.projectId">
               {{project.projectName}}</option>
             </select>
+            </div>
         </div>
 
          <div>
-          <label for="partyPlace">Party Place: </label>
+          <label for="partyPlace" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Party Place: </label>
+          <div class="col-md-12">
           <input type="text" id="partyPlace" name="party_place" class="form-control" ngModel placeholder="Party Place"/>
+          </div>
         </div>
 
         <div>
-          <label for="approverId">ApproverId: </label>
-         
+          <label for="approverId" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">ApproverId: </label>
+          <div class="col-md-12">
           <select id="approverId" 
           ngModel 
           name="approverId" 
@@ -36,11 +43,12 @@
             <option *ngFor="let user of userList" [value]="user.empId">
             {{user.name}}</option>
           </select>
-
+          </div>
          
         </div> 
         <div>
-          <label for="attendee">Attendee: </label>
+          <label for="attendee" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Attendee: </label>
+          <div class="col-md-12">
           <ng-multiselect-dropdown
             id="attendee"   
             name="empId"   
@@ -52,21 +60,33 @@
             (onSelectAll)="onSelectAll($event)"
             >
           </ng-multiselect-dropdown>
+          </div>
         </div> 
         <div >
-        
-          <label >
+            <label class="col-md-12 col-form-label text-md-left" class="font-weight-bold">
+                
               Date Time:
-              <input [owlDateTime]="dt1"
-               [owlDateTimeTrigger]="dt1" 
-               placeholder="Date Time"
+              <div class="col-md-12">
+              <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" 
+                placeholder="Date Time"
                ngModel
                name="partyDate">
-              <owl-date-time #dt1></owl-date-time>
-          </label>
+               </div>
+                <owl-date-time [pickerMode]="'dialog'" #dt5></owl-date-time>
+                
+            </label>
+
+          
+          
+            <div class="col-md-12">
           <input type="hidden" id="userId" ngModel name="userId">
+          </div>
         </div>
+        
+        <div class="col-md-12">
         <button type="submit" class="btn btn-success">SAVE</button>
+          </div>
+      
       </div>
       </form>
 
@@ -79,4 +99,80 @@
 
 
 
-  
+
+
+
+
+
+
+<!--
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Register</div>
+                        <div class="card-body">
+                            <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="full_name" class="form-control" name="full-name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="email_address" class="form-control" name="email-address">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="user_name" class="form-control" name="username">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="phone_number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="present_address" class="col-md-4 col-form-label text-md-right">Present Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="present_address" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Permanent Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right"><abbr
+                                                title="National Id Card">NID</abbr> Number</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="nid_number" class="form-control" name="nid-number">
+                                    </div>
+                                </div>
+
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                        Register
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    -->

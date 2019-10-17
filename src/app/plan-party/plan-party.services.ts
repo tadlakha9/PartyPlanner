@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { User } from '../model/User';
 import { PartyDetails } from '../model/PartyDetails';
 
+ 
 
 @Injectable()
 export class PlanPartyServices{
   userUrl:string='http://localhost:8102/party/user';
-  projectUrl:string='http://localhost:8102/party/projectdetails/user/10001';
+  projectUrl:string='http://localhost:8102/party/projectdetails/user/673912';
 
   getProjectList() : any {
     return this.httpClient.get(this.projectUrl);
@@ -24,7 +25,9 @@ export class PlanPartyServices{
     constructor(private httpClient:HttpClient){}
 
   savePlanParty(object:PartyDetails) {
+    console.log(object.partyDate);
     return this.httpClient.post(this._url,object);
+
   }
 
 
