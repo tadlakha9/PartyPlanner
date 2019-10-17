@@ -13,9 +13,53 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
+import { BrowserModule } from '@angular/platform-browser';
+
+import { MatDatepickerModule, MatTableModule  } from '@angular/material';
+import { IgxDatePickerModule } from "igniteui-angular";
+
+import { PlanPartyComponent } from './plan-party/plan-party.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthService } from './auth.service';
+import { HeaderComponent } from './header/header.component';
+import { DashboardService } from './dashboard/dashboard.service';
+import { PlanPartyServices } from './plan-party/plan-party.services';
+import { FooterComponent } from './footer/footer.component';
+
+import { PopupComponentComponent } from './popup-component/popup-component.component';
+import { SigninModule } from './auth/signin/signin.module';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    PlanPartyComponent,
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    PopupComponentComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent
+  ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SigninModule,
+    FormsModule,
+    MatDatepickerModule,
+    IgxDatePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatTableModule,
+    SelectDropDownModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    NgbModule,
+    RouterModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -25,8 +69,13 @@ import { ComponentsModule } from "./components/components.module";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  providers: [
+    AuthService,
+    DashboardService,
+    PlanPartyServices,
+    ModalService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
+

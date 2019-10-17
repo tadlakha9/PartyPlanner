@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [Black Dashboard Angular](https://demos.creative-tim.com/black-dashboard-angular/#/dashboard?ref=bda-readme) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fblack-dashboard-angular%2F%23%2Fadmin%2Fdashboard&text=Black%20Dashboard%20Angular%20by%20Creative%20Tim%20%7C%20Free%20Angular%20Admin%20Template&original_referer=https%3A%2F%2Fdemos.creative-tim.com%2Fblack-dashboard-angular%2F&via=creativetim&hashtags=angular%2Ccreativetim%2Cdark%2Cdashboard%2Cbootstrap%2Cangular)
 
 
@@ -230,3 +231,32 @@ Dribbble: <https://dribbble.com/creativetim>
 Google+: <https://plus.google.com/+CreativetimPage>
 
 Instagram: <https://instagram.com/creativetimofficial>
+=======
+# AngularApp
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+>>>>>>> a16622d9c8d8b5f287c15342ebd86dd37c454371

@@ -1,10 +1,14 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
-import { Routes, RouterModule } from "@angular/router";
-
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { PlanPartyComponent } from './plan-party/plan-party.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { PopupComponentComponent } from './popup-component/popup-component.component';
+
 
 const routes: Routes = [
   {
@@ -35,7 +39,11 @@ const routes: Routes = [
   {
     path: "**",
     redirectTo: "dashboard"
-  }
+  },
+  {path:'plan-party', component:PlanPartyComponent},
+  {path:'dashboard', component:DashboardComponent},
+  {path:'signin', component:SigninComponent},
+  {path:'popup', component:PopupComponentComponent}
 ];
 
 @NgModule({

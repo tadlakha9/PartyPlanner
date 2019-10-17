@@ -16,7 +16,11 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
+<<<<<<< HEAD
       dir: require('path').join(__dirname, '../coverage/black-dashboard-angular'),
+=======
+      dir: require('path').join(__dirname, '../coverage/angularApp'),
+>>>>>>> a16622d9c8d8b5f287c15342ebd86dd37c454371
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
