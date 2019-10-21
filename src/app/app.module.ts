@@ -16,7 +16,6 @@ import { ComponentsModule } from "./components/components.module";
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatDatepickerModule, MatTableModule  } from '@angular/material';
-import { IgxDatePickerModule } from "igniteui-angular";
 
 import { PlanPartyComponent } from './plan-party/plan-party.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,10 +23,11 @@ import { AuthService } from './auth.service';
 import { HeaderComponent } from './header/header.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { PlanPartyServices } from './plan-party/plan-party.services';
-import { FooterComponent } from './footer/footer.component';
 
 import { PopupComponentComponent } from './popup-component/popup-component.component';
-import { SigninModule } from './auth/signin/signin.module';
+import { SigninModule } from './pages/auth/signin/signin.module';
+import {OwlDateTimeModule} from 'ng-pick-datetime';
+import {OwlNativeDateTimeModule} from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -35,11 +35,10 @@ import { SigninModule } from './auth/signin/signin.module';
     PlanPartyComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent,
     PopupComponentComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
-  ],
+],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,12 +46,7 @@ import { SigninModule } from './auth/signin/signin.module';
     SigninModule,
     FormsModule,
     MatDatepickerModule,
-    IgxDatePickerModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
     MatTableModule,
-    SelectDropDownModule,
-    NgMultiSelectDropDownModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
@@ -67,13 +61,14 @@ import { SigninModule } from './auth/signin/signin.module';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
   ],
   providers: [
     AuthService,
     DashboardService,
-    PlanPartyServices,
-    ModalService
+    PlanPartyServices
   ],
   bootstrap: [AppComponent]
 })

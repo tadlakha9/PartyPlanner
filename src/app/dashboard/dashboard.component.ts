@@ -4,7 +4,7 @@ import { DashboardService } from './dashboard.service';
 import { PlanPartyComponent } from '../plan-party/plan-party.component';
 import { PlanPartyServices } from '../plan-party/plan-party.services';
 import { User } from '../model/User';
-import { ModalService } from 'src/services/modalService';
+
 
 
  
@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   userDropdownSettings = {};
   displayedColumns: string[] = ['party_title', 'select_project', 'party_place', 'approved_by', 'date_time'];
   dataSource: PartyDetails[];
-  constructor(private dashboardService:DashboardService, private planPartyService : PlanPartyServices, private modalService: ModalService) { 
+  constructor(private dashboardService:DashboardService, private planPartyService : PlanPartyServices) { 
     console.log('consructor called');
   }
 
@@ -37,7 +37,5 @@ export class DashboardComponent implements OnInit {
       });
       
   }
-  openModal() {
-    this.modalService.open();
-}
+  
 }
